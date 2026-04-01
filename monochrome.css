@@ -38,12 +38,12 @@ img {
 .db-card-meta {
   font-size: 0.95rem !important; /* MORE READABLE */
 }
-.db-card.reel-card { flex: 0 0 160px !important; } /* Enlarged reels */
-.db-card.image-card { flex: 0 0 280px !important; } /* Enlarged images */
-.db-card { flex: 0 0 250px !important; } /* Enlarged base (videos) */
+.db-card.reel-card { flex: 0 0 220px !important; } /* Enlarged reels for HD feel */
+.db-card.image-card { flex: 0 0 380px !important; } /* Enlarged images for HD feel */
+.db-card { flex: 0 0 320px !important; } /* Enlarged base (videos) for HD feel */
 
 .db-grid-content {
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; /* Larger grid items */
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)) !important; /* ULTRA HD GRID */
 }
 
 
@@ -136,8 +136,8 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 .db-hero-visual-wrap {
-  width: 300px !important; /* MEGA SIZE */
-  height: 300px !important;
+  width: 320px !important; /* MEGA SIZE HD */
+  height: 320px !important;
   background-color: var(--bg-primary) !important; /* Switches with theme */
   border: 1px solid rgba(128,128,128,0.3) !important;
   border-radius: 50% !important;

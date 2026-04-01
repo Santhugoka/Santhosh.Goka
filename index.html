@@ -326,13 +326,39 @@
   </div>
 
   <!-- ───────── VIDEO LIGHTBOX PLAYER ───────── -->
+  <!-- ───────── CINEMATIC VIDEO LIGHTBOX ───────── -->
   <div id="video-lightbox" class="vl-overlay">
-    <div class="vl-player">
-      <button class="vl-close" id="vl-close" aria-label="Close lightbox"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-      <div class="vl-frame-wrap" id="vl-frame-wrap"></div>
-      <div class="vl-info">
-        <h3 class="vl-title" id="vl-title"></h3>
-        <span class="vl-year"  id="vl-year"></span>
+    <div class="vl-container">
+      <div class="vl-header">
+         <button class="vl-back-btn" id="vl-close" aria-label="Close lightbox">
+           <i class="fa-solid fa-chevron-left"></i>
+         </button>
+         <div class="vl-avatar-wrap">
+           <img src="https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w100" alt="Profile Avatar" class="vl-avatar">
+         </div>
+      </div>
+      
+      <div class="vl-media-wrapper" id="vl-frame-wrap">
+         <!-- Populated by JS -->
+      </div>
+      
+      <div class="vl-content-details">
+         <div class="vl-stats-row">
+            <span class="vl-badge-hq">4K UHD</span>
+            <span class="vl-stars">9.8 <i class="fa-solid fa-star"></i> (Top Rated Work)</span>
+         </div>
+         
+         <h1 class="vl-main-title" id="vl-title"></h1>
+         
+         <div class="vl-pill-group" id="vl-genres">
+            <span class="vl-pill">Animation</span>
+            <span class="vl-pill">Motion Graphics</span>
+            <span class="vl-pill">VFX</span>
+         </div>
+         
+         <div class="vl-description" id="vl-description">
+           This work showcases advanced motion design and cinematic editing techniques. Every element is carefully crafted to deliver a premium visual experience, focusing on dynamic storytelling and high-impact aesthetics in modern media production.
+         </div>
       </div>
     </div>
   </div>

@@ -91,7 +91,10 @@ function initSkillDots() {
   const items = list.querySelectorAll('.sf-list-item');
   dotsContainer.innerHTML = ''; // reset
   
-  items.forEach((_, i) => {
+  // LIMIT TO ONLY 9 DOTS as requested
+  const itemsArray = Array.from(items).slice(0, 9);
+  
+  itemsArray.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'sf-dot' + (i === 0 ? ' active' : '');
     
@@ -112,7 +115,7 @@ function initSkillDots() {
     const scrollLeft = list.scrollLeft;
     // Calculate index based on item width + gap
     const itemWidth = items[0].offsetWidth + 12; // gap is 12px in monochrome.css
-    const activeIndex = Math.round(scrollLeft / itemWidth);
+    const activeIndex = Math.min(itemsArray.length - 1, Math.round(scrollLeft / itemWidth));
     
     const dots = dotsContainer.querySelectorAll('.sf-dot');
     dots.forEach((dot, index) => {
@@ -550,6 +553,7 @@ function buildCard(item, typeKey, companyKey, isReel, isImage) {
   const itemForLightbox = { ...item };
   if(isReel) itemForLightbox.type = 'reel';
   if(isImage) itemForLightbox.type = 'image';
+  itemForLightbox.companyKey = companyKey; // TRACK COMPANY FOR LOGO
   
   const clickAttr = clickable
     ? `onclick="openLightbox('${encodeURIComponent(JSON.stringify(itemForLightbox))}')" `
@@ -595,15 +599,53 @@ function openLightbox(itemJSON) {
     lightbox.classList.remove('portrait-mode');
   }
 
+  // IMAGE SPECIFIC CLASS
+  if (isImage) {
+    lightbox.classList.add('is-image');
+  } else {
+    lightbox.classList.remove('is-image');
+  }
+
   const frameWrap = document.getElementById('vl-frame-wrap');
   if (isImage) {
-    frameWrap.innerHTML = `<img src="${item.src}" alt="${item.title}" style="width:100%; height:100%; object-fit:contain; border-radius:12px;">`;
+    frameWrap.innerHTML = `<img src="${item.src}" alt="${item.title}" style="width:100%; height:100%; object-fit:contain;">`;
   } else {
+    // If embed exists, inject it
     frameWrap.innerHTML = item.embed;
+    // Post-inject fix for YouTube iframes to ensure they fill the container
+    const iframe = frameWrap.querySelector('iframe');
+    if (iframe) {
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.setAttribute('allow', 'autoplay; fullscreen');
+    }
   }
   
-  document.getElementById('vl-title').textContent    = item.title;
-  document.getElementById('vl-year').textContent     = item.year || '';
+  document.getElementById('vl-title').textContent = item.title;
+  
+  // Dynamic Logo based on Company Context
+  const avatarImg = document.querySelector('.vl-avatar');
+  if (avatarImg) {
+    if (item.companyKey && companyMeta[item.companyKey]) {
+      const meta = companyMeta[item.companyKey];
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      avatarImg.src = (currentTheme === 'dark' && meta.imageDark) ? meta.imageDark : meta.image;
+    } else {
+      // DEFAULT Portfolio Avatar
+      avatarImg.src = 'https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w100';
+    }
+  }
+
+  // Dynamic Genre Selection
+  const genresEl = document.getElementById('vl-genres');
+  if (genresEl) {
+    let tags = [];
+    if (isReel) tags = ['Shorts', 'Editing', 'Social'];
+    else if (isImage) tags = ['Design', 'Graphic', 'Branding'];
+    else tags = ['Motion', 'VFX', 'Cinematic'];
+    
+    genresEl.innerHTML = tags.map(t => `<span class="vl-pill">${t}</span>`).join('');
+  }
 
   lightbox.classList.add('active');
 }

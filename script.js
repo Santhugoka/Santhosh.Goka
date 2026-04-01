@@ -74,6 +74,51 @@ function toggleSkillFolder() {
       ? '<i class="fa-solid fa-folder"></i> Click to close'
       : '<i class="fa-solid fa-folder-open"></i> Click to open';
   }
+  
+  if (isOpen && window.innerWidth < 768) {
+    initSkillDots();
+  }
+}
+
+// ─────────────────────────────────────────────
+// 4.1. SKILLS DOTS LOGIC (MOBILE)
+// ─────────────────────────────────────────────
+function initSkillDots() {
+  const list = document.getElementById('sf-list');
+  const dotsContainer = document.getElementById('sf-dots');
+  if (!list || !dotsContainer) return;
+
+  const items = list.querySelectorAll('.sf-list-item');
+  dotsContainer.innerHTML = ''; // reset
+  
+  items.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'sf-dot' + (i === 0 ? ' active' : '');
+    
+    // Add click event to scroll to corresponding item
+    dot.addEventListener('click', () => {
+      const itemWidth = items[0].offsetWidth + 12;
+      list.scrollTo({
+        left: i * itemWidth,
+        behavior: 'smooth'
+      });
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  // Track scroll position to update active dot
+  list.addEventListener('scroll', () => {
+    const scrollLeft = list.scrollLeft;
+    // Calculate index based on item width + gap
+    const itemWidth = items[0].offsetWidth + 12; // gap is 12px in monochrome.css
+    const activeIndex = Math.round(scrollLeft / itemWidth);
+    
+    const dots = dotsContainer.querySelectorAll('.sf-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeIndex);
+    });
+  }, { passive: true });
 }
 
 

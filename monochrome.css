@@ -733,6 +733,34 @@ html:not([data-theme="light"]) .img-light {
   .sf-li-cat {
     font-size: 0.7rem !important;
   }
+  
+  /* Indicators for mobile scrolling */
+  .sf-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-top: -15px !important;
+    margin-bottom: 2rem !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .sf-scene.open .sf-dots {
+    opacity: 1;
+  }
+  .sf-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background-color: var(--text-primary) !important;
+    opacity: 0.2 !important;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+    cursor: pointer !important;
+    pointer-events: all !important;
+  }
+  .sf-dot.active {
+    opacity: 1 !important;
+    transform: scale(1.4) !important;
+  }
 }
 
 /* ───────── DASHBOARD SCROLLBARS ───────── */

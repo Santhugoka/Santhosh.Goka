@@ -536,7 +536,10 @@ function buildCard(item, typeKey, companyKey, isReel, isImage) {
       : `<div class="db-card-placeholder"><i class="fa-solid fa-clapperboard"></i></div>`;
   }
 
-  const avatarBadge = '';
+  // Company logo badge for the card
+  const avatarBadge = companyThumb 
+    ? `<div class="db-card-avatar-wrap"><img src="${companyThumb}" class="db-card-avatar" alt="Logo" /></div>` 
+    : '';
 
   // Play button only for playable media
   const playBtn = (hasEmbed)
@@ -563,7 +566,6 @@ function buildCard(item, typeKey, companyKey, isReel, isImage) {
     <div class="db-card ${typeClass}" ${clickAttr}>
       <div style="position:relative; height: 100%;">
         ${thumbEl}
-        ${avatarBadge}
         <span class="db-card-type ${badgeClass}">${badgeLabel}</span>
         ${playBtn}
         ${gradient}

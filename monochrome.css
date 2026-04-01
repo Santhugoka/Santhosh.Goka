@@ -3,9 +3,49 @@
 img {
   filter: none !important;
 }
-.wc-visual-img, .db-card-thumb, .db-hero-visual-img {
+.wc-visual-img, .db-card-thumb, .db-hero-visual-img, .db-card-avatar {
   filter: grayscale(0%) !important;
 }
+
+/* Dashboard Card Avatar - Circular Badge */
+.db-card-avatar-wrap {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background-color: var(--bg-primary) !important; /* Context-aware background */
+  border: 1px solid rgba(128,128,128,0.2) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  z-index: 10 !important;
+  padding: 4px !important; /* Small padding for cards */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+.db-card-avatar {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Contain for consistent branding without cropping */
+}
+.db-card-title {
+  font-size: 1.15rem !important; /* SIGNIFICANTLY BIGGER */
+  font-weight: 700 !important;
+  margin-bottom: 5px !important;
+}
+.db-card-meta {
+  font-size: 0.95rem !important; /* MORE READABLE */
+}
+.db-card.reel-card { flex: 0 0 160px !important; } /* Enlarged reels */
+.db-card.image-card { flex: 0 0 280px !important; } /* Enlarged images */
+.db-card { flex: 0 0 250px !important; } /* Enlarged base (videos) */
+
+.db-grid-content {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; /* Larger grid items */
+}
+
 
 *:not(.sf-li-icon):not(.sf-preview-card):not(.marquee-item):not(.img-dark):not(.img-light):not(.db-hero):not(.db-sidebar):not(.view-badge):not(.db-card-avatar):not(.db-nav-btn),
 *::before, *::after {
@@ -95,11 +135,33 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   flex: 1 !important;
 }
 
+.db-hero-visual-wrap {
+  width: 300px !important; /* MEGA SIZE */
+  height: 300px !important;
+  background-color: var(--bg-primary) !important; /* Switches with theme */
+  border: 1px solid rgba(128,128,128,0.3) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 15px !important; /* Breathable margin */
+  margin-bottom: 2rem !important;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.1) !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
+}
+
 .db-hero-visual-img {
-  max-width: 280px !important; /* Larger logo for hero style */
-  max-height: 220px !important;
-  width: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Preserve all logo details/text */
+}
+
+.db-hero-visual-img {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: contain !important;
+  filter: grayscale(0%) !important;
 }
 .db-hero-content {
   padding-right: 50px !important; /* Extra room to avoid X button overlap */
@@ -112,11 +174,11 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 
 .db-hero-title {
   font-family: 'Rajdhani', sans-serif !important;
-  font-size: 5rem !important; /* Massive bold title */
+  font-size: 6.5rem !important; /* ULTRA MEGA TITLE */
   font-weight: 900 !important;
-  line-height: 1.0 !important;
-  margin-bottom: 15px !important;
-  letter-spacing: -1px !important;
+  line-height: 0.9 !important;
+  margin-bottom: 20px !important;
+  letter-spacing: -2px !important;
 }
 .db-hero-sub {
   font-size: 1.1rem !important; /* More readable subtitle */
@@ -271,17 +333,17 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 .vl-avatar-wrap {
-  width: 56px !important; /* Slightly larger for better detail */
-  height: 56px !important;
+  width: 72px !important; /* Increased for big detail */
+  height: 72px !important;
   border-radius: 50% !important;
   overflow: hidden !important;
-  border: 1px solid rgba(255,255,255,0.4) !important;
-  padding: 8px !important; /* Proper breathing room for logos */
-  background-color: #ffffff !important; /* WHITE BACKGROUND to blend logo boxes into a circle */
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  padding: 6px !important;
+  background-color: var(--bg-primary) !important; /* Switches with theme */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
 }
 
 .vl-avatar { 
@@ -396,7 +458,12 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   .vl-header { padding: 20px !important; }
   .vl-main-title { font-size: 1.8rem !important; }
   .vl-content-details { padding: 25px 20px !important; }
-  .vl-back-btn, .vl-avatar-wrap { width: 44px !important; height: 44px !important; }
+  .vl-back-btn { width: 44px !important; height: 44px !important; }
+  .vl-avatar-wrap { 
+    width: 60px !important; /* Bigger mobile avatar */
+    height: 60px !important; 
+    padding: 3px !important; 
+  }
 }
 
 .db-top-close i {
@@ -530,7 +597,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 .marquee-item {
   width: 80px;
   height: 80px;
-  border-radius: 16px;
+  border-radius: 50%; /* Changed to circle */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -541,6 +608,16 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   flex-shrink: 0;
   transition: transform 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+  overflow: hidden; /* Ensure content stays inside circle */
+  background-color: #ffffff !important; /* White background for consistency if needed, but keeping gradient for now unless it looks bad */
+}
+#skills-scroller .marquee-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 5px !important; /* Reduced padding */
+}
+#skills-scroller .marquee-item span {
+  color: #000 !important; /* Black text for light background */
 }
 
 .marquee-item span {
@@ -836,14 +913,20 @@ html:not([data-theme="light"]) .img-light {
     align-items: center !important;
   }
 
+  .db-hero-visual-wrap {
+    width: 200px !important; /* MUCH BIGGER ON MOBILE */
+    height: 200px !important;
+    padding: 5px !important;
+    margin: 0 auto 25px !important;
+  }
   .db-hero-visual-img {
-    max-width: 200px !important;
-    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .db-hero-title {
-    font-size: 3rem !important; /* Smaller but still hero-sized on mobile */
-    line-height: 1.1 !important;
+    font-size: 4rem !important; /* Larger on mobile too */
+    line-height: 1.0 !important;
   }
 
   .db-hero-sub {

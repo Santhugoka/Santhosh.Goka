@@ -385,31 +385,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   background: linear-gradient(to bottom, #111, #000) !important;
 }
 
-.vl-stats-row {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-  margin-bottom: 20px !important;
-  color: #ffffff !important;
-}
 
-.vl-badge-hq {
-  background: linear-gradient(135deg, #ff8c00, #ff4500) !important;
-  color: #fff !important;
-  padding: 4px 10px !important;
-  border-radius: 4px !important;
-  font-size: 0.7rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 1px !important;
-}
-
-.vl-stars {
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  opacity: 0.8 !important;
-}
-
-.vl-stars i { color: #ffcc00 !important; margin-left: 2px !important; }
 
 .vl-main-title {
   font-size: 2rem !important; /* Reduced for better balance */
@@ -609,15 +585,13 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   transition: transform 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
   overflow: hidden; /* Ensure content stays inside circle */
-  background-color: #ffffff !important; /* White background for consistency if needed, but keeping gradient for now unless it looks bad */
 }
-#skills-scroller .marquee-item {
-  background: #ffffff !important;
+/* Marquee items now use their own colors */
+.marquee-item {
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+[data-theme="light"] .marquee-item {
   border: 1px solid rgba(0,0,0,0.05) !important;
-  padding: 5px !important; /* Reduced padding */
-}
-#skills-scroller .marquee-item span {
-  color: #000 !important; /* Black text for light background */
 }
 
 .marquee-item span {
@@ -636,7 +610,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 /* Primary buttons & icons */
-.btn-primary, .sf-li-icon, .sf-preview-card, .intro-logo-circle, .contact-icon {
+.btn-primary, .intro-logo-circle, .contact-icon {
   background-color: var(--text-primary) !important;
   color: var(--bg-primary) !important;
   border: none !important;
@@ -714,7 +688,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   gap: 10px;
 }
 
-.btn-primary i, .wc-btn i, .contact-icon i, .sf-li-icon span, .sf-preview-card span {
+.btn-primary i, .wc-btn i, .contact-icon i {
   color: var(--bg-primary) !important;
 }
 

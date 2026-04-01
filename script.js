@@ -26,9 +26,9 @@ if (themeToggle) {
     applyTheme(newTheme);
     
     // If project modal is open, re-render to update logos/images
-    if (document.getElementById('project-modal').classList.contains('active') && currentCompany) {
+    const modal = document.getElementById('project-modal');
+    if (modal && modal.classList.contains('active') && currentCompany) {
       renderDashboard(currentCompany, currentTab);
-      // Also update hero visual
       updateHeroVisual(currentCompany, newTheme);
     }
   });
@@ -536,11 +536,8 @@ function buildCard(item, typeKey, companyKey, isReel, isImage) {
       : `<div class="db-card-placeholder"><i class="fa-solid fa-clapperboard"></i></div>`;
   }
 
-  // Company logo badge for the card
-  const avatarBadge = companyThumb 
-    ? `<div class="db-card-avatar-wrap"><img src="${companyThumb}" class="db-card-avatar" alt="Logo" /></div>` 
-    : '';
-
+  // Optional: Add company logo badge or overlay code here if needed in future
+    
   // Play button only for playable media
   const playBtn = (hasEmbed)
     ? `<div class="db-play-btn"><i class="fa-solid fa-play"></i></div>`
@@ -647,6 +644,12 @@ function openLightbox(itemJSON) {
     else tags = ['Motion', 'VFX', 'Cinematic'];
     
     genresEl.innerHTML = tags.map(t => `<span class="vl-pill">${t}</span>`).join('');
+  }
+
+  // Dynamic Description
+  const descEl = document.getElementById('vl-description');
+  if (descEl) {
+    descEl.textContent = item.description || "This work showcases advanced motion design and cinematic editing techniques. Every element is carefully crafted to deliver a premium visual experience, focusing on dynamic storytelling and high-impact aesthetics in modern media production.";
   }
 
   lightbox.classList.add('active');

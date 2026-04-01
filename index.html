@@ -16,9 +16,21 @@
 
 
   <!-- ───────── THEME TOGGLE ───────── -->
-  <button id="theme-toggle" aria-label="Toggle dark/light mode">
-    <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
-  </button>
+  <div class="theme-switch-wrapper">
+    <span class="mode-label light">Light</span>
+    <label class="theme-switch" for="theme-checkbox">
+      <input type="checkbox" id="theme-checkbox" />
+      <div class="slider round">
+        <div class="slider-inner"></div>
+        <div class="slider-dots">
+          <span class="s-dot"></span>
+          <span class="s-dot"></span>
+          <span class="s-dot"></span>
+        </div>
+      </div>
+    </label>
+    <span class="mode-label dark">Dark</span>
+  </div>
 
   <!-- ───────── HERO SECTION ───────── -->
   <section id="hero">

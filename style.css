@@ -264,31 +264,112 @@ body {
   pointer-events: none;
 }
 
-/* ── THEME TOGGLE ── */
-#theme-toggle {
+/* ── THEME TOGGLE (PILL STYLE) ── */
+.theme-switch-wrapper {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-  z-index: 1000;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--border-color);
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  border-radius: 50%;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: var(--accent);
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 12px var(--accent-glow);
+  gap: 12px;
+  z-index: 10000;
+  background: var(--bg-primary);
+  padding: 10px 18px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  border: 1px solid rgba(128,128,128,0.22);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
-#theme-toggle:hover {
-  transform: rotate(20deg) scale(1.1);
-  box-shadow: 0 0 22px var(--accent-glow);
+
+.mode-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
+
+[data-theme="light"] .mode-label.light,
+[data-theme="dark"] .mode-label.dark {
+  opacity: 1;
+}
+
+.theme-switch {
+  display: inline-flex;
+  height: 28px;
+  position: relative;
+  width: 54px;
+  align-items: center;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #e2e8f0;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+input:checked + .slider {
+  background-color: #729dff; /* Authentic color from image */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Decorative dots on slider for dark mode (stars) */
+.slider-dots {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:checked + .slider .slider-dots {
+  opacity: 1;
+}
+
+.s-dot {
+  width: 3px;
+  height: 3px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+}
+.s-dot:nth-child(2) { width: 2px; height: 2px; margin-top: 4px; }
+.s-dot:nth-child(3) { width: 1.5px; height: 1.5px; margin-top: -3px; }
 
 /* ── GLASS CARD ── */
 .glass-card {

@@ -8,27 +8,28 @@ window.closeProjectModal = closeProjectModal;
 window.toggleSkillFolder = toggleSkillFolder;
 window.openLightbox = openLightbox;
 // ─────────────────────────────────────────────
-// 2.  DARK / LIGHT THEME TOGGLE
+// 2.  DARK / LIGHT THEME TOGGLE (PILL SWITCHER)
 // ─────────────────────────────────────────────
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon   = document.getElementById('theme-icon');
+const themeCheckbox = document.getElementById('theme-checkbox');
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('sg-theme', theme);
-  if (themeIcon) {
-    themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  
+  if (themeCheckbox) {
+    themeCheckbox.checked = (theme === 'dark');
   }
 }
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+if (themeCheckbox) {
+  themeCheckbox.addEventListener('change', () => {
+    const newTheme = themeCheckbox.checked ? 'dark' : 'light';
     applyTheme(newTheme);
     
     // If project modal is open, re-render to update logos/images
     const modal = document.getElementById('project-modal');
-    if (modal && modal.classList.contains('active') && currentCompany) {
-      renderDashboard(currentCompany, currentTab);
+    if (modal && modal.classList.contains('active') && typeof currentCompany !== 'undefined' && currentCompany) {
+      renderDashboard(currentCompany, typeof currentTab !== 'undefined' ? currentTab : 'all');
       updateHeroVisual(currentCompany, newTheme);
     }
   });

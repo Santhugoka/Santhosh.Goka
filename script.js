@@ -10,29 +10,33 @@ window.openLightbox = openLightbox;
 // ─────────────────────────────────────────────
 // 2.  DARK / LIGHT THEME TOGGLE
 // ─────────────────────────────────────────────
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon   = document.getElementById('theme-icon');
+const themeToggles = document.querySelectorAll('.theme-toggle');
+const themeIcons   = document.querySelectorAll('.theme-icon');
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('sg-theme', theme);
-  if (themeIcon) {
-    themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-  }
-}
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-    
-    // If project modal is open, re-render to update logos/images
-    const modal = document.getElementById('project-modal');
-    if (modal && modal.classList.contains('active') && currentCompany) {
-      renderDashboard(currentCompany, currentTab);
-      updateHeroVisual(currentCompany, newTheme);
-    }
+  
+  // Sync all icons
+  themeIcons.forEach(icon => {
+    icon.className = theme === 'dark' ? 'fa-solid fa-moon theme-icon' : 'fa-solid fa-sun theme-icon';
   });
 }
+
+themeToggles.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    
+    // Update active project dashboard if open
+    const modal = document.getElementById('project-modal');
+    if (modal && modal.classList.contains('active') && typeof currentCompany !== 'undefined' && currentCompany) {
+      if (typeof renderDashboard === 'function') renderDashboard(currentCompany, currentTab);
+      if (typeof updateHeroVisual === 'function') updateHeroVisual(currentCompany, newTheme);
+    }
+  });
+});
 
 function updateHeroVisual(companyKey, theme) {
   const meta = companyMeta[companyKey];
@@ -44,6 +48,36 @@ function updateHeroVisual(companyKey, theme) {
     visualWrap.innerHTML = `<img src="${displayImage}" alt="Company Logo" class="db-hero-visual-img">`;
   }
 }
+// ─────────────────────────────────────────────
+// 2.5 MOBILE SIDEBAR CONTROLLER
+// ─────────────────────────────────────────────
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const msSidebar    = document.getElementById('mobile-sidebar');
+const msCloseBtn   = document.getElementById('ms-close-btn');
+const msOverlay    = document.getElementById('ms-overlay');
+const msLinks      = document.querySelectorAll('.ms-link');
+
+function openMobileMenu() {
+  msSidebar?.classList.add('active');
+  msOverlay?.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Stop background scroll
+}
+
+function closeMobileMenu() {
+  msSidebar?.classList.remove('active');
+  msOverlay?.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+mobileMenuBtn?.addEventListener('click', openMobileMenu);
+msCloseBtn?.addEventListener('click', closeMobileMenu);
+msOverlay?.addEventListener('click', closeMobileMenu);
+
+// Auto-close when clicking links
+msLinks.forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
 // check if user has forced dark mode inside Local Storage, otherwise default light
 applyTheme(localStorage.getItem('sg-theme') || 'light');
 

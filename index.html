@@ -14,11 +14,48 @@
 </head>
 <body>
 
+  <!-- ───────── GLOBAL TOPBAR ───────── -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-logo">SANTHOSH <span class="accent">GOKA</span></div>
+      
+      <nav class="topbar-nav">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#work" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
 
-  <!-- ───────── THEME TOGGLE ───────── -->
-  <button id="theme-toggle" aria-label="Toggle dark/light mode">
-    <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
-  </button>
+      <div class="topbar-actions">
+        <button class="theme-toggle theme-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-btn" aria-label="Toggle mobile menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────── MOBILE SIDEBAR ───────── -->
+  <aside class="mobile-sidebar" id="mobile-sidebar">
+    <div class="ms-header">
+      <div class="ms-logo">SANTHOSH <span class="accent">GOKA</span></div>
+      <div class="ms-actions">
+        <button class="theme-toggle ms-theme-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
+        </button>
+        <button class="ms-close" id="ms-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <nav class="ms-nav">
+      <a href="#hero" class="ms-link">Home</a>
+      <a href="#work" class="ms-link">Projects</a>
+      <a href="#skills" class="ms-link">Skills</a>
+      <a href="#contact" class="ms-link">Contact</a>
+    </nav>
+  </aside>
+  <div class="ms-overlay" id="ms-overlay"></div>
 
   <!-- ───────── HERO SECTION ───────── -->
   <section id="hero">

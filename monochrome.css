@@ -830,67 +830,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   transform: scale(1.1) rotate(90deg) !important;
 }
 
-/* ───────── SKILLS MARQUEE ───────── */
-.skills-marquee-section {
-  padding: 40px 0 !important;
-  overflow: hidden;
-  background: var(--bg-primary) !important;
-}
 
-.marquee-wrapper {
-  display: flex;
-  align-items: center; /* Center vertically */
-  overflow: hidden;
-  user-select: none;
-  gap: 30px;
-  height: 120px; /* Explicit height to allow centering */
-}
-
-.marquee-track {
-  display: flex;
-  align-items: center; /* Center horizontally in track if needed */
-  flex-shrink: 0;
-  gap: 30px;
-  min-width: 100%;
-  animation: scroll-marquee 60s linear infinite;
-}
-
-@keyframes scroll-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-item {
-  width: 80px;
-  height: 80px;
-  border-radius: 20px !important; /* SQUARE BOX DESIGN (SQUIRCLE) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: #fff !important;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
-  overflow: hidden; /* Ensure content stays inside circle */
-}
-/* Marquee items now use their own colors */
-.marquee-item {
-  border: 1px solid rgba(255,255,255,0.1) !important;
-}
-[data-theme="light"] .marquee-item {
-  border: 1px solid rgba(0,0,0,0.05) !important;
-}
-
-.marquee-item span {
-  color: #fff !important;
-}
-
-.marquee-item:hover {
-  transform: translateY(-10px) scale(1.1);
-}
 
 /* Cards & Glass elements */
 .glass-card, .db-sidebar, .db-main, .sf-list-item, .contact-card {
@@ -1010,7 +950,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   opacity: 0.1 !important;
 }
 
-.intro-progress-fill, .timeline-dot, .scroll-indicator span, .sf-folder-tab {
+.intro-progress-fill, .timeline-dot, .sf-folder-tab {
   background-color: var(--text-primary) !important;
 }
 

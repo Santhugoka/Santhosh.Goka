@@ -668,23 +668,6 @@ function openLightbox(itemJSON) {
     }
   }
 
-  // Dynamic Genre Selection
-  const genresEl = document.getElementById('vl-genres');
-  if (genresEl) {
-    let tags = [];
-    if (isReel) tags = ['Reels', 'Editing', 'Social'];
-    else if (isImage) tags = ['Design', 'Graphic', 'Branding'];
-    else tags = ['Motion', 'VFX', 'Cinematic'];
-    
-    genresEl.innerHTML = tags.map(t => `<span class="vl-pill">${t}</span>`).join('');
-  }
-
-  // Dynamic Description
-  const descEl = document.getElementById('vl-description');
-  if (descEl) {
-    descEl.textContent = item.description || "This work showcases advanced motion design and cinematic editing techniques. Every element is carefully crafted to deliver a premium visual experience, focusing on dynamic storytelling and high-impact aesthetics in modern media production.";
-  }
-
   lightbox.classList.add('active');
 }
 

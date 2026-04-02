@@ -36,14 +36,16 @@ img {
   margin-bottom: 5px !important;
 }
 .db-card-meta {
-  font-size: 0.95rem !important; /* MORE READABLE */
+  font-size: 0.75rem !important; /* SIGNIFICANTLY SMALLER */
+  opacity: 0.6 !important;
+  letter-spacing: 0.5px !important;
 }
-.db-card.reel-card { flex: 0 0 220px !important; } /* Enlarged reels for HD feel */
-.db-card.image-card { flex: 0 0 380px !important; } /* Enlarged images for HD feel */
-.db-card { flex: 0 0 320px !important; } /* Enlarged base (videos) for HD feel */
+.db-card.reel-card { flex: 0 0 160px !important; } /* Enlarged reels */
+.db-card.image-card { flex: 0 0 280px !important; } /* Enlarged images */
+.db-card { flex: 0 0 250px !important; } /* Enlarged base (videos) */
 
 .db-grid-content {
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)) !important; /* ULTRA HD GRID */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; /* Larger grid items */
 }
 
 
@@ -124,8 +126,8 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   justify-content: flex-start !important;
   text-align: left !important;
   min-height: 500px !important; /* Increased for big hero feel */
-  padding: 60px 80px !important;
-  gap: 50px !important;
+  padding: 80px 100px !important;
+  gap: 60px !important;
 }
 
 .db-hero-content {
@@ -136,17 +138,17 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 .db-hero-visual-wrap {
-  width: 280px !important; /* REFINED SIZE */
-  height: 280px !important;
-  background-color: var(--bg-primary) !important;
-  border: 1px solid rgba(128,128,128,0.2) !important;
+  width: 300px !important; /* MEGA SIZE */
+  height: 300px !important;
+  background-color: var(--bg-primary) !important; /* Switches with theme */
+  border: 1px solid rgba(128,128,128,0.3) !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 20px !important; 
-  margin-bottom: 0 !important; /* Removed margin-bottom for horizontal layout */
-  box-shadow: 0 10px 35px rgba(0,0,0,0.08) !important;
+  padding: 15px !important; /* Breathable margin */
+  margin-bottom: 2rem !important;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.1) !important;
   flex-shrink: 0 !important;
   overflow: hidden !important;
 }
@@ -174,37 +176,17 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 
 .db-hero-title {
   font-family: 'Rajdhani', sans-serif !important;
-  font-size: clamp(2.2rem, 6vw, 3.8rem) !important; /* REFINED HD SIZE */
+  font-size: 6.5rem !important; /* ULTRA MEGA TITLE */
   font-weight: 900 !important;
-  line-height: 1.0 !important;
-  margin-bottom: 15px !important;
-  letter-spacing: -1px !important;
+  line-height: 0.9 !important;
+  margin-bottom: 20px !important;
+  letter-spacing: -2px !important;
 }
-
 .db-hero-sub {
-  font-size: 1.0rem !important; 
-  max-width: 550px !important;
+  font-size: 0.85rem !important; /* SMALLER FOR AGENCY LOOK */
+  max-width: 600px !important;
+  opacity: 0.6 !important;
   line-height: 1.6 !important;
-  opacity: 0.75 !important;
-}
-
-@media (max-width: 992px) {
-  .db-hero {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 60px 20px !important;
-    gap: 30px !important;
-    min-height: auto !important;
-  }
-  .db-hero-content {
-    align-items: center !important;
-    padding-right: 0 !important;
-  }
-  .db-hero-visual-wrap {
-    width: 220px !important;
-    height: 220px !important;
-    margin-bottom: 20px !important;
-  }
 }
 
 /* Ensure all cards and images are visible */
@@ -255,6 +237,11 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   border: none !important;
   padding: 0 !important;
   color: var(--text-primary) !important;
+  font-size: 0.65rem !important; /* MEGA SMALL */
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  font-weight: 800 !important;
+  margin-bottom: 12px !important;
 }
 
 /* Fix Visibility for dashboard content & work history cards */
@@ -425,25 +412,28 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 .vl-pill {
-  padding: 6px 18px !important;
+  padding: 4px 14px !important;
   border-radius: 30px !important;
   background-color: rgba(255,255,255,0.1) !important;
   border: 1px solid rgba(255,255,255,0.2) !important;
   color: #ffffff !important;
-  font-size: 0.75rem !important; /* Smaller text size */
-  font-weight: 600 !important;
+  font-size: 0.65rem !important; /* SMALLER TEXT SIZE */
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
   transition: background 0.3s !important;
 }
 
 .vl-pill:hover { background-color: rgba(255,255,255,0.2) !important; }
 
 .vl-description {
-  font-size: 0.95rem !important; /* Smaller, cleaner text */
-  line-height: 1.5 !important;
-  opacity: 0.75 !important;
+  font-size: 0.8rem !important; /* SMALLER, CLEANER TEXT */
+  line-height: 1.7 !important;
+  opacity: 0.6 !important;
   max-width: 800px !important;
   margin-bottom: 40px !important;
   color: #ffffff !important;
+  font-weight: 400 !important;
 }
 
 /* Portrait Mode adjustments for Reels */
@@ -541,8 +531,8 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #ffffff !important; /* High contrast white circle */
-  border-radius: 50% !important;
+  background: #ffffff !important; /* High contrast white box */
+  border-radius: 10px !important; /* SQUARE BOX DESIGN */
   border: none !important;
   color: #000000 !important; /* Black icon on white circle */
   z-index: 2000 !important;
@@ -594,7 +584,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 .marquee-item {
   width: 80px;
   height: 80px;
-  border-radius: 50%; /* Changed to circle */
+  border-radius: 20px !important; /* SQUARE BOX DESIGN (SQUIRCLE) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -812,9 +802,11 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 .db-card.reel-card .db-card-meta {
-  color: rgba(255,255,255,0.7) !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.65rem !important; /* MEGA SMALL */
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
 }
 
 /* Global: Hide the type badge (VIDEO, REEL, IMAGE) for a cleaner UI */
@@ -891,7 +883,44 @@ html:not([data-theme="light"]) .img-light {
 }
 
 /* ───────── MOBILE RESPONSIVENESS ───────── */
-/* Responsive overrides consolidated above or handled via clamp */
+@media (max-width: 991px) {
+  .db-hero {
+    flex-direction: column !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 450px !important;
+    padding: 60px 40px !important;
+    gap: 30px !important;
+  }
+  
+  .db-hero-content {
+    padding-right: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .db-hero-visual-wrap {
+    width: 200px !important; /* MUCH BIGGER ON MOBILE */
+    height: 200px !important;
+    padding: 5px !important;
+    margin: 0 auto 25px !important;
+  }
+  .db-hero-visual-img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .db-hero-title {
+    font-size: 4rem !important; /* Larger on mobile too */
+    line-height: 1.0 !important;
+  }
+
+  .db-hero-sub {
+    font-size: 1rem !important;
+    max-width: 100% !important;
+  }
+}
 
 /* ───────── MOBILE SKILLS OPTIMIZATION ───────── */
 @media (max-width: 768px) {

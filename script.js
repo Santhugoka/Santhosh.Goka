@@ -8,28 +8,27 @@ window.closeProjectModal = closeProjectModal;
 window.toggleSkillFolder = toggleSkillFolder;
 window.openLightbox = openLightbox;
 // ─────────────────────────────────────────────
-// 2.  DARK / LIGHT THEME TOGGLE (PILL SWITCHER)
+// 2.  DARK / LIGHT THEME TOGGLE
 // ─────────────────────────────────────────────
-const themeCheckbox = document.getElementById('theme-checkbox');
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon   = document.getElementById('theme-icon');
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('sg-theme', theme);
-  
-  if (themeCheckbox) {
-    themeCheckbox.checked = (theme === 'dark');
+  if (themeIcon) {
+    themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
 }
-
-if (themeCheckbox) {
-  themeCheckbox.addEventListener('change', () => {
-    const newTheme = themeCheckbox.checked ? 'dark' : 'light';
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(newTheme);
     
     // If project modal is open, re-render to update logos/images
     const modal = document.getElementById('project-modal');
-    if (modal && modal.classList.contains('active') && typeof currentCompany !== 'undefined' && currentCompany) {
-      renderDashboard(currentCompany, typeof currentTab !== 'undefined' ? currentTab : 'all');
+    if (modal && modal.classList.contains('active') && currentCompany) {
+      renderDashboard(currentCompany, currentTab);
       updateHeroVisual(currentCompany, newTheme);
     }
   });
@@ -158,20 +157,20 @@ document.querySelectorAll('.stat-number').forEach(el => {
 // ─────────────────────────────────────────────
 const companyMeta = {
   usp: {
-    image: 'https://drive.google.com/thumbnail?id=1J9v0Fx7MwvakwoHxTazul0bqAwsd3GaK&sz=w4000',
-    imageDark: 'https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w4000',
+    image: 'https://drive.google.com/thumbnail?id=1J9v0Fx7MwvakwoHxTazul0bqAwsd3GaK&sz=w1000',
+    imageDark: 'https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w1000',
     period: 'Nov 2016 – Sep 2019',
     heroSub: 'Broadcast graphics, promotional videos & animated media campaigns.'
   },
   lehren: {
-    image: 'https://drive.google.com/thumbnail?id=1WKLrgH-7Kr-rzJszih4Dhb-qDi8JGvoz&sz=w4000',
-    imageDark: 'https://drive.google.com/thumbnail?id=1AGxUzXNZPF9eW245kNbzVTVjtyCYOmF5&sz=w4000',
+    image: 'https://drive.google.com/thumbnail?id=1WKLrgH-7Kr-rzJszih4Dhb-qDi8JGvoz&sz=w1000',
+    imageDark: 'https://drive.google.com/thumbnail?id=1AGxUzXNZPF9eW245kNbzVTVjtyCYOmF5&sz=w1000',
     period: 'Dec 2019 – Jan 2022',
     heroSub: 'Entertainment graphics, Bollywood reels & social media motion assets.'
   },
   pen: {
-    image: 'https://drive.google.com/thumbnail?id=1HvdPfXs97yjfrW3QseNm_UFWYYFNfP8t&sz=w4000',
-    imageDark: 'https://drive.google.com/thumbnail?id=1sUweI_lGRTBhRfWXL9bp3rfc69aADLUI&sz=w4000',
+    image: 'https://drive.google.com/thumbnail?id=1HvdPfXs97yjfrW3QseNm_UFWYYFNfP8t&sz=w1000',
+    imageDark: 'https://drive.google.com/thumbnail?id=1sUweI_lGRTBhRfWXL9bp3rfc69aADLUI&sz=w1000',
     period: 'Feb 2022 – Present',
     heroSub: 'Cinematic title sequences, OTT promos & theatrical release graphics.'
   }
@@ -194,18 +193,18 @@ const projectData = {
       { title: 'Color for Kids to Learn Educational Video', year: '2016', embed: `<iframe src="https://www.youtube.com/embed/epXZaX7Goa8?autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>` },
     ],
     Images: [
-      { title: 'Project Dashboard 1', year: '2019', src: 'https://drive.google.com/thumbnail?id=1TS1jAhKwa8aZ30hwAx8Fn6TISCbNyh8p&sz=w4000' },
-      { title: 'Project Dashboard 2', year: '2019', src: 'https://drive.google.com/thumbnail?id=1-zoU5QlyU1QUnsyCFPnz3RaWlUPxOiR4&sz=w4000' },
-      { title: 'Project Dashboard 3', year: '2019', src: 'https://drive.google.com/thumbnail?id=1tSZMfuOOROHFU1ZayjSlaBewyp62nzmZ&sz=w4000' },
-      { title: 'Project Dashboard 4', year: '2019', src: 'https://drive.google.com/thumbnail?id=10GnDfE-4XPLZryOah9vkwPR19QJ61yxR&sz=w4000' },
-      { title: 'Project Dashboard 5', year: '2018', src: 'https://drive.google.com/thumbnail?id=1p0INrI_UqoluVkKPhF9YPmf5t0stAk0w&sz=w4000' },
-      { title: 'Project Dashboard 6', year: '2018', src: 'https://drive.google.com/thumbnail?id=1PXfy0r5K3dafDiyetCJtlfHTd5iPyf_j&sz=w4000' },
-      { title: 'Project Dashboard 7', year: '2018', src: 'https://drive.google.com/thumbnail?id=1gtrC6u_Ls8-98OoKSwDX0jj7xSWs47VC&sz=w4000' },
-      { title: 'Project Dashboard 8', year: '2018', src: 'https://drive.google.com/thumbnail?id=1udldnKihTXRPnvwIiP62GUTBHDtn1hP3&sz=w4000' },
-      { title: 'Project Dashboard 9', year: '2017', src: 'https://drive.google.com/thumbnail?id=1VwThHfLUSvi5RVGgTAPpqXPFnN1cgA7r&sz=w4000' },
-      { title: 'Project Dashboard 10', year: '2017', src: 'https://drive.google.com/thumbnail?id=1Q1-IcwZ-q1ImGB15kvMXytK-5EXQx_V8&sz=w4000' },
-      { title: 'Project Dashboard 11', year: '2016', src: 'https://drive.google.com/thumbnail?id=1M5-lQvuWTFaRQkSwSElKAmziu4P8dORK&sz=w4000' },
-      { title: 'Project Dashboard 12', year: '2016', src: 'https://drive.google.com/thumbnail?id=1-VxGqstcjBuq8RMf6WAbbmXK8XENDQjz&sz=w4000' }
+      { title: 'Project Dashboard 1', year: '2019', src: 'https://drive.google.com/thumbnail?id=1TS1jAhKwa8aZ30hwAx8Fn6TISCbNyh8p&sz=w1000' },
+      { title: 'Project Dashboard 2', year: '2019', src: 'https://drive.google.com/thumbnail?id=1-zoU5QlyU1QUnsyCFPnz3RaWlUPxOiR4&sz=w1000' },
+      { title: 'Project Dashboard 3', year: '2019', src: 'https://drive.google.com/thumbnail?id=1tSZMfuOOROHFU1ZayjSlaBewyp62nzmZ&sz=w1000' },
+      { title: 'Project Dashboard 4', year: '2019', src: 'https://drive.google.com/thumbnail?id=10GnDfE-4XPLZryOah9vkwPR19QJ61yxR&sz=w1000' },
+      { title: 'Project Dashboard 5', year: '2018', src: 'https://drive.google.com/thumbnail?id=1p0INrI_UqoluVkKPhF9YPmf5t0stAk0w&sz=w1000' },
+      { title: 'Project Dashboard 6', year: '2018', src: 'https://drive.google.com/thumbnail?id=1PXfy0r5K3dafDiyetCJtlfHTd5iPyf_j&sz=w1000' },
+      { title: 'Project Dashboard 7', year: '2018', src: 'https://drive.google.com/thumbnail?id=1gtrC6u_Ls8-98OoKSwDX0jj7xSWs47VC&sz=w1000' },
+      { title: 'Project Dashboard 8', year: '2018', src: 'https://drive.google.com/thumbnail?id=1udldnKihTXRPnvwIiP62GUTBHDtn1hP3&sz=w1000' },
+      { title: 'Project Dashboard 9', year: '2017', src: 'https://drive.google.com/thumbnail?id=1VwThHfLUSvi5RVGgTAPpqXPFnN1cgA7r&sz=w1000' },
+      { title: 'Project Dashboard 10', year: '2017', src: 'https://drive.google.com/thumbnail?id=1Q1-IcwZ-q1ImGB15kvMXytK-5EXQx_V8&sz=w1000' },
+      { title: 'Project Dashboard 11', year: '2016', src: 'https://drive.google.com/thumbnail?id=1M5-lQvuWTFaRQkSwSElKAmziu4P8dORK&sz=w1000' },
+      { title: 'Project Dashboard 12', year: '2016', src: 'https://drive.google.com/thumbnail?id=1-VxGqstcjBuq8RMf6WAbbmXK8XENDQjz&sz=w1000' }
     ]
   },
   lehren: {
@@ -346,23 +345,23 @@ const projectData = {
       { title: "In Cinemas Now", year: "2024", embed: `<iframe src="https://www.youtube.com/embed/rSVnQeHUIoE?autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>` },
     ],
     Images: [
-      { title: 'Project Dashboard 1', year: '2024', src: 'https://drive.google.com/thumbnail?id=1GR6spS6hQyUl-NXFtWQwrDEJh-PNtE6u&sz=w4000' },
-      { title: 'Project Dashboard 2', year: '2024', src: 'https://drive.google.com/thumbnail?id=1RXqsbNC8XWhUAuYsJtniOLXRWNMf8_Au&sz=w4000' },
-      { title: 'Project Dashboard 3', year: '2024', src: 'https://drive.google.com/thumbnail?id=1dnvDR7np4ews-fI9f_jW0GGnj0MDNpl6&sz=w4000' },
-      { title: 'Project Dashboard 4', year: '2024', src: 'https://drive.google.com/thumbnail?id=19UKyBJNVjPT1pxunlCc0Z4_BTUv0Dhbm&sz=w4000' },
-      { title: 'Project Dashboard 5', year: '2024', src: 'https://drive.google.com/thumbnail?id=1pEV96D-quZWO3C7sRWRn2FeNFNEcC1Is&sz=w4000' },
-      { title: 'Project Dashboard 6', year: '2024', src: 'https://drive.google.com/thumbnail?id=1X8FLv_aAc0020qKez0XtnFwLdvx9XxLx&sz=w4000' },
-      { title: 'Project Dashboard 7', year: '2024', src: 'https://drive.google.com/thumbnail?id=1fGZ5_RMhoTzlF05dZWosHZ3OrYxmd0XK&sz=w4000' },
-      { title: 'Project Dashboard 8', year: '2024', src: 'https://drive.google.com/thumbnail?id=1DeZcfzfZZ-LlkwYsXy_-6b5PssUrF1Zc&sz=w4000' },
-      { title: 'Project Dashboard 9', year: '2024', src: 'https://drive.google.com/thumbnail?id=1NGg5brLj9oHHVzPTW1go_vtUCoshsW0L&sz=w4000' },
-      { title: 'Project Dashboard 10', year: '2024', src: 'https://drive.google.com/thumbnail?id=1SxRsooy_b-S7HsV2y3y-qj-O-Bofvtnj&sz=w4000' },
-      { title: 'Project Dashboard 11', year: '2024', src: 'https://drive.google.com/thumbnail?id=1DHYHuzoADGrHOA0WeyV-dHzovP84IB0c&sz=w4000' },
-      { title: 'Project Dashboard 12', year: '2024', src: 'https://drive.google.com/thumbnail?id=1yo23L5DOv_w6zXBSic3MQNeK78YZ9cFr&sz=w4000' },
-      { title: 'Project Dashboard 13', year: '2024', src: 'https://drive.google.com/thumbnail?id=1p3t77ei1vARc993ad-vYBko72Ik0pz63&sz=w4000' },
-      { title: 'Project Dashboard 14', year: '2024', src: 'https://drive.google.com/thumbnail?id=1HDSPZLGaRJwuyVuGaDoKlV2vXiJon_Vi&sz=w4000' },
-      { title: 'Project Dashboard 15', year: '2024', src: 'https://drive.google.com/thumbnail?id=1cUmnNX2aHysZrSdFDiU4V9D9rVOHkG4t&sz=w4000' },
-      { title: 'Project Dashboard 16', year: '2024', src: 'https://drive.google.com/thumbnail?id=1jVrzf3APZ90ZiVN4yiIaFW66gkGc3fXX&sz=w4000' },
-      { title: 'Project Dashboard 17', year: '2024', src: 'https://drive.google.com/thumbnail?id=1HakHMeLAdmXtTZSA0MnGdoOVPIj6Fcg5&sz=w4000' }
+      { title: 'Project Dashboard 1', year: '2024', src: 'https://drive.google.com/thumbnail?id=1GR6spS6hQyUl-NXFtWQwrDEJh-PNtE6u&sz=w1000' },
+      { title: 'Project Dashboard 2', year: '2024', src: 'https://drive.google.com/thumbnail?id=1RXqsbNC8XWhUAuYsJtniOLXRWNMf8_Au&sz=w1000' },
+      { title: 'Project Dashboard 3', year: '2024', src: 'https://drive.google.com/thumbnail?id=1dnvDR7np4ews-fI9f_jW0GGnj0MDNpl6&sz=w1000' },
+      { title: 'Project Dashboard 4', year: '2024', src: 'https://drive.google.com/thumbnail?id=19UKyBJNVjPT1pxunlCc0Z4_BTUv0Dhbm&sz=w1000' },
+      { title: 'Project Dashboard 5', year: '2024', src: 'https://drive.google.com/thumbnail?id=1pEV96D-quZWO3C7sRWRn2FeNFNEcC1Is&sz=w1000' },
+      { title: 'Project Dashboard 6', year: '2024', src: 'https://drive.google.com/thumbnail?id=1X8FLv_aAc0020qKez0XtnFwLdvx9XxLx&sz=w1000' },
+      { title: 'Project Dashboard 7', year: '2024', src: 'https://drive.google.com/thumbnail?id=1fGZ5_RMhoTzlF05dZWosHZ3OrYxmd0XK&sz=w1000' },
+      { title: 'Project Dashboard 8', year: '2024', src: 'https://drive.google.com/thumbnail?id=1DeZcfzfZZ-LlkwYsXy_-6b5PssUrF1Zc&sz=w1000' },
+      { title: 'Project Dashboard 9', year: '2024', src: 'https://drive.google.com/thumbnail?id=1NGg5brLj9oHHVzPTW1go_vtUCoshsW0L&sz=w1000' },
+      { title: 'Project Dashboard 10', year: '2024', src: 'https://drive.google.com/thumbnail?id=1SxRsooy_b-S7HsV2y3y-qj-O-Bofvtnj&sz=w1000' },
+      { title: 'Project Dashboard 11', year: '2024', src: 'https://drive.google.com/thumbnail?id=1DHYHuzoADGrHOA0WeyV-dHzovP84IB0c&sz=w1000' },
+      { title: 'Project Dashboard 12', year: '2024', src: 'https://drive.google.com/thumbnail?id=1yo23L5DOv_w6zXBSic3MQNeK78YZ9cFr' },
+      { title: 'Project Dashboard 13', year: '2024', src: 'https://drive.google.com/thumbnail?id=1p3t77ei1vARc993ad-vYBko72Ik0pz63' },
+      { title: 'Project Dashboard 14', year: '2024', src: 'https://drive.google.com/thumbnail?id=1HDSPZLGaRJwuyVuGaDoKlV2vXiJon_Vi' },
+      { title: 'Project Dashboard 15', year: '2024', src: 'https://drive.google.com/thumbnail?id=1cUmnNX2aHysZrSdFDiU4V9D9rVOHkG4t' },
+      { title: 'Project Dashboard 16', year: '2024', src: 'https://drive.google.com/thumbnail?id=1jVrzf3APZ90ZiVN4yiIaFW66gkGc3fXX' },
+      { title: 'Project Dashboard 17', year: '2024', src: 'https://drive.google.com/thumbnail?id=1HakHMeLAdmXtTZSA0MnGdoOVPIj6Fcg5' }
     ]
   }
 };
@@ -577,10 +576,7 @@ function buildCard(item, typeKey, companyKey, isReel, isImage) {
 
 function getYouTubeThumbnail(embedCode) {
   const m = embedCode.match(/youtube\.com\/embed\/([^"?]+)/);
-  if (!m) return '';
-  const videoId = m[1];
-  // Attempt to use maxresdefault (1920x1080), falls back to hqdefault in most browsers if broken but we'll return the URL
-  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  return m ? `https://img.youtube.com/vi/${m[1]}/hqdefault.jpg` : '';
 }
 
 
@@ -635,7 +631,7 @@ function openLightbox(itemJSON) {
       avatarImg.src = (currentTheme === 'dark' && meta.imageDark) ? meta.imageDark : meta.image;
     } else {
       // DEFAULT Portfolio Avatar
-      avatarImg.src = 'https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w500';
+      avatarImg.src = 'https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w100';
     }
   }
 

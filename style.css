@@ -254,6 +254,7 @@ body {
   overflow-x: hidden;
   transition: background 0.4s, color 0.4s;
   position: relative;
+  image-rendering: -webkit-optimize-contrast; /* HD CLARITY */
 }
 
 /* ── 3D CANVAS BACKGROUND ── */
@@ -298,7 +299,7 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 20px;
   box-shadow: var(--card-shadow);
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  transition: background 0.4s, box-shadow 0.4s, transform 0.45s cubic-bezier(0.16,1,0.3,1); /* SILKY HOVER */
 }
 .glass-card:hover {
   background: var(--bg-card-hover);
@@ -317,7 +318,8 @@ body {
 
 /* ── SECTION ── */
 .section {
-  padding: 6rem 0;
+  padding: clamp(4rem, 8vw, 8rem) 0;
+  text-align: center; /* PROPER MIDDLE ALIGNMENT */
 }
 @media(max-width: 600px) {
   .section { padding: 3.5rem 0; }
@@ -853,9 +855,12 @@ body {
    ══════════════════════════════════════════ */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
   align-items: start;
+  justify-content: center; /* PROPER MIDDLE ALIGNMENT */
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
 }
 @media(max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
 @media(max-width: 650px) { .work-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
@@ -1193,7 +1198,7 @@ body {
 .db-logo {
   width: 54px;
   height: 54px;
-  border-radius: 14px;
+  border-radius: 18px;
   margin-bottom: 1.1rem;
   display: flex;
   align-items: center;
@@ -1672,14 +1677,17 @@ body {
 
 .vl-info {
   display: flex;
+  flex-direction: column; /* CENTER VERTICAL */
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
   padding: 0 0.5rem;
 }
 .vl-title {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.6rem; /* LARGER FOR CINEMATIC FEEL */
+  font-weight: 900;
   color: #fff;
 }
 .vl-year {
@@ -1780,10 +1788,10 @@ body {
 /* ── MEDIA GRID ── */
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-content: center; /* PROPER MIDDLE ALIGNMENT */
 }
-
 .media-card {
   border-radius: 1rem;
   overflow: hidden;
@@ -2146,8 +2154,11 @@ a.contact-link:hover .contact-icon {
 /* ── SECTION REVEAL ANIMATION ── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(50px);
+  transition: 
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1); /* SILKY SMOOTH ANIMATION */
+  will-change: transform, opacity;
 }
 .reveal.visible {
   opacity: 1;

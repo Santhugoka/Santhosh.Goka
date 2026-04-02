@@ -121,20 +121,21 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: column !important; /* CENTERED LAYOUT */
   align-items: center !important;
-  justify-content: flex-start !important;
-  text-align: left !important;
-  min-height: 500px !important; /* Increased for big hero feel */
-  padding: 80px 100px !important;
-  gap: 60px !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: clamp(500px, 70vh, 800px) !important;
+  padding: 60px 20px !important;
+  gap: 30px !important;
 }
 
 .db-hero-content {
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: center !important; /* CENTERED */
   flex: 1 !important;
+  max-width: 900px !important;
 }
 
 .db-hero-visual-wrap {
@@ -166,7 +167,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   filter: grayscale(0%) !important;
 }
 .db-hero-content {
-  padding-right: 50px !important; /* Extra room to avoid X button overlap */
+  padding-right: 0 !important; /* Reset for centering */
 }
 
 .db-hero-title, .db-hero-sub, .db-hero-badge {

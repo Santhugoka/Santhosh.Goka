@@ -571,15 +571,74 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   height: 100% !important;
   max-width: 1100px !important;
   max-height: 98vh !important;
-  background-color: #000 !important; /* Base black for better immersion */
+  background-color: #0d0d0d !important;
   display: flex !important;
   flex-direction: column !important;
   position: relative !important;
   overflow-x: hidden !important;
-  overflow-y: auto !important; /* Enabled scrolling to see text below tall videos */
+  overflow-y: auto !important; /* Default for mobile/tablet */
   scrollbar-width: thin !important;
   scrollbar-color: rgba(255,255,255,0.2) transparent !important;
-  animation: vlPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8) !important;
+  animation: vlPopIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* ───────── DESKTOP SPLIT LAYOUT (TEXT ONE SIDE, VIDEO ONE SIDE) ───────── */
+@media (min-width: 1024px) {
+  .vl-overlay:not(.portrait-mode) .vl-container {
+    display: grid !important;
+    grid-template-columns: 420px 1fr !important;
+    grid-template-rows: auto 1fr !important;
+    max-width: 1300px !important;
+    max-height: 85vh !important; /* Slightly more compact on desktop */
+    overflow: hidden !important; /* Lock overall scroll, use internal for panel */
+    height: auto !important;
+    min-height: 500px !important;
+  }
+
+  .vl-overlay:not(.portrait-mode) .vl-header {
+    grid-column: 1 / -1 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    background: rgba(13,13,13,0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
+
+  .vl-overlay:not(.portrait-mode) .vl-content-details {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    height: 100% !important;
+    border-right: 1px solid rgba(255,255,255,0.08) !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 50px 40px !important;
+    background: #0d0d0d !important;
+    scrollbar-width: thin !important;
+  }
+
+  .vl-overlay:not(.portrait-mode) .vl-media-wrapper {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    background: #000 !important;
+    box-shadow: inset 20px 0 60px rgba(0,0,0,0.5) !important; /* Depth effect */
+  }
+
+  .vl-overlay:not(.portrait-mode) .vl-main-title {
+    font-size: 1.7rem !important;
+  }
+
+  .vl-overlay:not(.portrait-mode) .vl-description {
+    font-size: 0.85rem !important;
+    opacity: 0.7 !important;
+    line-height: 1.8 !important;
+  }
 }
 
 @keyframes vlPopIn {
@@ -830,7 +889,67 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   transform: scale(1.1) rotate(90deg) !important;
 }
 
+/* ───────── SKILLS MARQUEE ───────── */
+.skills-marquee-section {
+  padding: 40px 0 !important;
+  overflow: hidden;
+  background: var(--bg-primary) !important;
+}
 
+.marquee-wrapper {
+  display: flex;
+  align-items: center; /* Center vertically */
+  overflow: hidden;
+  user-select: none;
+  gap: 30px;
+  height: 120px; /* Explicit height to allow centering */
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center; /* Center horizontally in track if needed */
+  flex-shrink: 0;
+  gap: 30px;
+  min-width: 100%;
+  animation: scroll-marquee 60s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px !important; /* SQUARE BOX DESIGN (SQUIRCLE) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff !important;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+  overflow: hidden; /* Ensure content stays inside circle */
+}
+/* Marquee items now use their own colors */
+.marquee-item {
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+[data-theme="light"] .marquee-item {
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.marquee-item span {
+  color: #fff !important;
+}
+
+.marquee-item:hover {
+  transform: translateY(-10px) scale(1.1);
+}
 
 /* Cards & Glass elements */
 .glass-card, .db-sidebar, .db-main, .sf-list-item, .contact-card {
@@ -950,7 +1069,7 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   opacity: 0.1 !important;
 }
 
-.intro-progress-fill, .timeline-dot, .sf-folder-tab {
+.intro-progress-fill, .timeline-dot, .scroll-indicator span, .sf-folder-tab {
   background-color: var(--text-primary) !important;
 }
 

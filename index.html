@@ -13,49 +13,32 @@
   <link rel="stylesheet" href="monochrome.css" />
 </head>
 <body>
-
-  <!-- ───────── GLOBAL TOPBAR ───────── -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="topbar-logo">SANTHOSH <span class="accent">GOKA</span></div>
+  <!-- ───────── PREMIUM TOP NAVIGATION ───────── -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <!-- Clickable Logo for Mobile Menu -->
+      <div class="nav-logo" id="nav-toggle" role="button" aria-label="Toggle Menu">SG</div>
       
-      <nav class="topbar-nav">
-        <a href="#hero" class="nav-link">Home</a>
-        <a href="#work" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="topbar-actions">
-        <button class="theme-toggle theme-btn" aria-label="Toggle dark/light mode">
-          <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
-        </button>
-        <button id="mobile-menu-btn" class="mobile-btn" aria-label="Toggle mobile menu">
-          <i class="fa-solid fa-bars-staggered"></i>
-        </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link">HOME</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#skills" class="nav-link">My Skills</a>
+        <a href="#work" class="nav-link">Work History</a>
+        <a href="#education" class="nav-link">Educational Qualifications</a>
+        <a href="#languages" class="nav-link">Languages Known</a>
+        <a href="#contact" class="nav-link">Get In Touch</a>
       </div>
-    </div>
-  </header>
 
-  <!-- ───────── MOBILE SIDEBAR ───────── -->
-  <aside class="mobile-sidebar" id="mobile-sidebar">
-    <div class="ms-header">
-      <div class="ms-logo">SANTHOSH <span class="accent">GOKA</span></div>
-      <div class="ms-actions">
-        <button class="theme-toggle ms-theme-btn" aria-label="Toggle dark/light mode">
-          <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
-        </button>
-        <button class="ms-close" id="ms-close-btn"><i class="fa-solid fa-xmark"></i></button>
-      </div>
+      <button class="theme-toggle nav-action-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </div>
-    <nav class="ms-nav">
-      <a href="#hero" class="ms-link">Home</a>
-      <a href="#work" class="ms-link">Projects</a>
-      <a href="#skills" class="ms-link">Skills</a>
-      <a href="#contact" class="ms-link">Contact</a>
-    </nav>
-  </aside>
-  <div class="ms-overlay" id="ms-overlay"></div>
+  </nav>
+
+  <!-- ───────── MAIN LAYOUT WRAPPER ───────── -->
+  <div class="layout-wrapper">
+    <main class="main-content">
+
 
   <!-- ───────── HERO SECTION ───────── -->
   <section id="hero">
@@ -75,32 +58,31 @@
     </div>
   </section>
 
-  <!-- ───────── SUMMARY SECTION ───────── -->
+  <!-- ───────── ABOUT ME SECTION ───────── -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
-      <div class="about-grid">
-        <div class="about-text glass-card">
-          <p>
-            To associate myself with a professionally driven esteemed organization by pursuing a challenging,
-            dynamic, responsible, and rewarding career — applying my professional experience, skills, and
-            enthusiasm in a position for career growth in the industry.
-          </p>
-        </div>
+      <h2 class="section-title">ABOUT <span class="accent">ME</span></h2>
+      <div class="about-content">
+        <p class="about-description">
+          To associate myself with a professionally driven esteemed organization by pursuing a challenging, 
+          dynamic, responsible, and rewarding career — applying my professional experience, skills, and 
+          enthusiasm in a position for career growth in the industry.
+        </p>
+        
         <div class="stats-grid">
-          <div class="stat-card glass-card">
+          <div class="stat-card">
             <span class="stat-number">8+</span>
             <span class="stat-label">Years Experience</span>
           </div>
-          <div class="stat-card glass-card">
+          <div class="stat-card">
             <span class="stat-number">3</span>
             <span class="stat-label">Companies</span>
           </div>
-          <div class="stat-card glass-card">
+          <div class="stat-card">
             <span class="stat-number">∞</span>
             <span class="stat-label">Projects Done</span>
           </div>
-          <div class="stat-card glass-card">
+          <div class="stat-card">
             <span class="stat-number">5+</span>
             <span class="stat-label">Tools Mastered</span>
           </div>
@@ -146,6 +128,15 @@
             <span class="sf-li-badge core">Core</span>
           </div>
 
+          <div class="sf-list-item" style="--li:7">
+            <div class="sf-li-icon" style="background:linear-gradient(135deg,#0a0a2a,#6c63ff)"><span>AI</span></div>
+            <div class="sf-li-info">
+              <span class="sf-li-name">A.I. Tools</span>
+              <span class="sf-li-cat">Generative · Workflow AI</span>
+            </div>
+            <span class="sf-li-badge core">Core</span>
+          </div>
+
           <div class="sf-list-item" style="--li:3">
             <div class="sf-li-icon" style="background:linear-gradient(135deg,#2d004d,#ff2bc2)"><span>Xd</span></div>
             <div class="sf-li-info">
@@ -178,15 +169,6 @@
             <div class="sf-li-info">
               <span class="sf-li-name">Blender</span>
               <span class="sf-li-cat">3D · Rendering · Sculpting</span>
-            </div>
-            <span class="sf-li-badge basic">Basic</span>
-          </div>
-
-          <div class="sf-list-item" style="--li:7">
-            <div class="sf-li-icon" style="background:linear-gradient(135deg,#0a0a2a,#6c63ff)"><span>AI</span></div>
-            <div class="sf-li-info">
-              <span class="sf-li-name">A.I. Tools</span>
-              <span class="sf-li-cat">Generative · Workflow AI</span>
             </div>
             <span class="sf-li-badge basic">Basic</span>
           </div>
@@ -317,6 +299,11 @@
 
   <!-- ───────── PROJECT DASHBOARD MODAL ───────── -->
   <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Projects">
+    <!-- TOP RIGHT CLOSE OUTSIDE -->
+    <button class="db-top-close" onclick="closeProjectModal()" aria-label="Close Dashboard">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
     <div class="dashboard">
       <!-- DASHBOARD SIDEBAR -->
       <aside class="db-sidebar">
@@ -336,11 +323,6 @@
         </div>
       </aside>
 
-      <!-- TOP RIGHT CLOSE -->
-      <button class="db-top-close" onclick="closeProjectModal()" aria-label="Close Dashboard">
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
-
       <!-- MAIN CONTENT ONLY -->
       <main class="db-main" id="db-main">
         <!-- Hero banner -->
@@ -348,9 +330,24 @@
           <div class="db-hero-overlay"></div>
           <div class="db-hero-visual-wrap" id="db-hero-visual-wrap"></div>
           <div class="db-hero-content">
-            <div class="db-hero-badge" id="db-hero-badge">Featured</div>
+            <div class="db-hero-top-row">
+              <div class="db-hero-badge" id="db-hero-badge">Featured</div>
+            </div>
             <h1 class="db-hero-title" id="db-hero-title">Projects</h1>
             <p class="db-hero-sub" id="db-hero-sub"></p>
+            
+            <!-- Folder Quick Nav -->
+            <div class="db-folder-nav" id="db-folder-nav">
+              <button class="db-folder-chip" onclick="dbSwitchTab('Videos', null)">
+                <i class="fa-solid fa-play"></i> Video Folder
+              </button>
+              <button class="db-folder-chip" onclick="dbSwitchTab('Reels', null)">
+                <i class="fa-solid fa-film"></i> Reel Folder
+              </button>
+              <button class="db-folder-chip" onclick="dbSwitchTab('Images', null)">
+                <i class="fa-solid fa-image"></i> Image Folder
+              </button>
+            </div>
           </div>
         </div>
 
@@ -365,32 +362,29 @@
   <!-- ───────── VIDEO LIGHTBOX PLAYER ───────── -->
   <!-- ───────── CINEMATIC VIDEO LIGHTBOX ───────── -->
   <div id="video-lightbox" class="vl-overlay">
-    <div class="vl-container">
-      <div class="vl-header">
-         <button class="vl-back-btn" id="vl-close" aria-label="Close lightbox">
-           <i class="fa-solid fa-chevron-left"></i>
-         </button>
-         <div class="vl-avatar-wrap">
-           <img src="https://drive.google.com/thumbnail?id=1_9NEwe9Qc38SyEOLbf39Ybh4u7cGM5rh&sz=w100" alt="Profile Avatar" class="vl-avatar">
-         </div>
-      </div>
-      
-      <div class="vl-media-wrapper" id="vl-frame-wrap">
-         <!-- Populated by JS -->
-      </div>
-      
-      <div class="vl-content-details">
-         <h1 class="vl-main-title" id="vl-title"></h1>
-         
-         <div class="vl-pill-group" id="vl-genres">
-            <span class="vl-pill">Animation</span>
-            <span class="vl-pill">Motion Graphics</span>
-            <span class="vl-pill">VFX</span>
-         </div>
-         
-         <div class="vl-description" id="vl-description">
-           This work showcases advanced motion design and cinematic editing techniques. Every element is carefully crafted to deliver a premium visual experience, focusing on dynamic storytelling and high-impact aesthetics in modern media production.
-         </div>
+    <div class="vl-player">
+      <!-- Top Right Close -->
+      <button class="vl-close" id="vl-close" aria-label="Close lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="vl-split-layout">
+        <div class="vl-media-side" id="vl-frame-wrap">
+          <!-- Video Populated by JS -->
+        </div>
+        
+        <div class="vl-text-side">
+          <div class="vl-text-content">
+            <h1 class="vl-title" id="vl-title">Project Title</h1>
+            <div class="vl-pill-group" id="vl-genres">
+               <span class="vl-pill">Motion</span>
+               <span class="vl-pill">VFX</span>
+            </div>
+            <div class="vl-description" id="vl-description">
+              This work showcases advanced motion design and cinematic editing techniques.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -446,7 +440,7 @@
       <div class="contact-grid-wrapper">
         <!-- Direct Contact Column -->
         <div class="contact-column">
-          <a href="https://www.google.com/maps/search/?api=1&query=Flat+No+506,+Vinayak+Shrushti,+Datta+Mandir,+Sonarpada,+Dombivli+East+Kalyan" target="_blank" class="contact-card glass-card contact-link">
+          <a href="https://maps.app.goo.gl/6sc9E6GWRDEg6DCy6" target="_blank" class="contact-card glass-card contact-link">
             <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
             <div class="contact-info">
               <span class="contact-label">Location</span>
@@ -454,11 +448,11 @@
             </div>
           </a>
 
-          <a href="mailto:santhogoka635@gmail.com" class="contact-card glass-card contact-link">
+          <a href="mailto:santhugoka635@gmail.com" class="contact-card glass-card contact-link">
             <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
             <div class="contact-info">
               <span class="contact-label">Email</span>
-              <span class="contact-value">santhogoka635@gmail.com</span>
+              <span class="contact-value">santhugoka635@gmail.com</span>
             </div>
           </a>
 
@@ -473,7 +467,7 @@
 
         <!-- Social Profiles Column -->
         <div class="contact-column">
-          <a href="https://www.linkedin.com/" target="_blank" class="contact-card glass-card contact-link">
+          <a href="https://www.linkedin.com/in/goka-santhosh-72b614194" target="_blank" class="contact-card glass-card contact-link">
             <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
             <div class="contact-info">
               <span class="contact-label">LinkedIn</span>
@@ -548,6 +542,9 @@
       </div>
     </div>
   </section>
+
+    </main>
+  </div>
 
   <!-- ───────── FOOTER ───────── -->
   <footer class="footer">

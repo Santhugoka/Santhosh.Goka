@@ -30,23 +30,7 @@ img {
   height: 100% !important;
   object-fit: contain !important; /* Contain for consistent branding without cropping */
 }
-.db-card-title {
-  font-size: 1.15rem !important; /* SIGNIFICANTLY BIGGER */
-  font-weight: 700 !important;
-  margin-bottom: 5px !important;
-}
-.db-card-meta {
-  font-size: 0.75rem !important; /* SIGNIFICANTLY SMALLER */
-  opacity: 0.6 !important;
-  letter-spacing: 0.5px !important;
-}
-.db-card.reel-card { flex: 0 0 160px !important; } /* Enlarged reels */
-.db-card.image-card { flex: 0 0 280px !important; } /* Enlarged images */
-.db-card { flex: 0 0 250px !important; } /* Enlarged base (videos) */
 
-.db-grid-content {
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; /* Larger grid items */
-}
 
 
 *:not(.sf-li-icon):not(.sf-preview-card):not(.marquee-item):not(.img-dark):not(.img-light):not(.db-hero):not(.db-sidebar):not(.view-badge):not(.db-card-avatar):not(.db-nav-btn),
@@ -65,7 +49,7 @@ img {
   border: initial !important; 
 }
 
-.wc-visual-bg, .wc-visual-lines, .intro-canvas, .hero-canvas, .vl-info, .vl-player, .vl-frame-wrap {
+.wc-visual-bg, .wc-visual-lines, .intro-canvas, .hero-canvas {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
@@ -94,14 +78,23 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 /* ───────── ABSOLUTE MONOCHROME DASHBOARD ───────── */
 .dashboard {
   flex-direction: column !important;
-  background-color: var(--bg-primary) !important;
-  background-image: none !important; /* Remove orange grid */
+  background-color: #f2f2f5 !important; /* Premium light grey background like reference */
+  background-image: none !important;
   width: 95vw !important;
   max-width: 1400px !important;
   height: 90vh !important;
   overflow: hidden !important;
-  border-radius: 20px !important;
+  border-radius: 24px !important;
   display: flex !important;
+  color: #111 !important;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+[data-theme="dark"] .dashboard {
+  background-color: #0d0d0e !important;
+  color: #f0f0f0 !important;
+  border-color: rgba(255,255,255,0.03) !important;
 }
 
 .db-sidebar { display: block !important; }
@@ -312,248 +305,112 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   align-items: center !important;
   border: 1px solid var(--text-primary) !important;
 }
-/* ───────── GLOBAL TOPBAR ───────── */
-.topbar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 70px !important;
-  z-index: 1000 !important; /* Below Modals */
-  background: var(--bg-primary) !important;
-  backdrop-filter: blur(15px) !important;
-  -webkit-backdrop-filter: blur(15px) !important;
-  border-bottom: 2px solid var(--text-primary) !important;
-  display: flex !important;
-  align-items: center !important;
-  transition: all 0.3s ease !important;
+
+/* ───────── MODERN SIDEBAR MONOCHROME ───────── */
+.side-nav {
+  background-color: var(--bg-primary) !important;
+  border: 2px solid var(--text-primary) !important;
 }
 
-[data-theme="light"] .topbar {
-  background: rgba(255,255,255, 0.8) !important;
-  border-bottom-color: rgba(0,0,0,0.1) !important;
-}
-
-.topbar-inner {
-  width: 100% !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  padding: 0 40px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-
-.topbar-logo {
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 1.4rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 2.5px !important;
+.side-link {
   color: var(--text-primary) !important;
-  text-transform: uppercase !important;
+  opacity: 0.5 !important;
 }
 
-.topbar-logo .accent {
-  opacity: 0.4 !important;
+.side-link:hover, .side-link.active {
+  background-color: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+  opacity: 1 !important;
 }
 
-.topbar-nav {
-  display: flex !important;
-  gap: 35px !important;
+.side-nav-toggle, .user-name, .user-greeting, .user-arrow {
+  color: var(--text-primary) !important;
+}
+
+.search-box {
+  background-color: transparent !important;
+  border: 1px solid var(--text-primary) !important;
+}
+
+.search-box input {
+  color: var(--text-primary) !important;
+}
+
+/* ───────── MODERN TOPBAR MONOCHROME ───────── */
+.top-nav {
+  background-color: var(--bg-primary) !important;
+  border-bottom: 2px solid var(--text-primary) !important;
+}
+
+.nav-logo {
+  color: var(--text-primary) !important;
 }
 
 .nav-link {
-  text-decoration: none !important;
   color: var(--text-primary) !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.8px !important;
-  opacity: 0.6 !important;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  opacity: 0.5 !important;
 }
 
 .nav-link:hover {
   opacity: 1 !important;
-  transform: translateY(-2px) !important;
 }
 
-.topbar-actions {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.theme-btn {
-  background: none !important;
-  border: none !important;
-  color: var(--text-primary) !important;
-  font-size: 1.1rem !important;
-  cursor: pointer !important;
-  padding: 8px !important;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
-/* Redundant section removed for cleaner file */
-
-
-.topbar-actions {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.theme-btn {
-  background: none !important;
-  border: none !important;
-  color: var(--text-primary) !important;
-  font-size: 1.1rem !important;
-  cursor: pointer !important;
-  padding: 8px !important;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
-.theme-btn:hover {
-  transform: scale(1.2) rotate(15deg) !important;
-}
-
-/* MOBILE MENU BUTTON */
-.mobile-btn {
-  display: none !important;
-  background: none !important;
-  border: none !important;
-  color: var(--text-primary) !important;
-  font-size: 1.3rem !important;
-  cursor: pointer !important;
-  padding: 8px !important;
-  margin-left: 10px !important;
-  transition: transform 0.3s ease !important;
-}
-
-@media (max-width: 768px) {
-  .mobile-btn { display: block !important; }
-}
-
-/* ───────── MOBILE SIDEBAR ───────── */
-.mobile-sidebar {
-  position: fixed !important;
-  top: 0 !important;
-  right: -300px !important; /* Start hidden */
-  width: 300px !important;
-  height: 100vh !important;
-  z-index: 10001 !important;
-  background: var(--bg-primary) !important;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.mobile-sidebar.active {
-  right: 0 !important;
-}
-
-.ms-header {
-  padding: 30px 25px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  border-bottom: 1px solid rgba(128,128,128,0.1) !important;
-}
-
-.ms-logo {
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 800 !important;
-  font-size: 1.1rem !important;
-  letter-spacing: 2px !important;
+.nav-action-btn {
   color: var(--text-primary) !important;
 }
 
-.ms-actions {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-}
-
-.ms-theme-btn {
-  background: none !important;
-  border: none !important;
-  color: var(--text-primary) !important;
-  font-size: 1.2rem !important;
-  cursor: pointer !important;
-  padding: 8px !important;
-  opacity: 0.6 !important;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
-}
-
-.ms-theme-btn:hover {
-  opacity: 1 !important;
-  transform: scale(1.1) rotate(15deg) !important;
-}
-
-.ms-close {
-  background: rgba(128,128,128,0.1) !important;
-  border: none !important;
-  color: var(--text-primary) !important;
-  width: 36px !important;
-  height: 36px !important;
-  border-radius: 8px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-}
-
-.ms-nav {
-  flex: 1 !important;
-  padding: 40px 25px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 25px !important;
-}
-
-.ms-link {
-  text-decoration: none !important;
-  color: var(--text-primary) !important;
-  font-size: 1.4rem !important;
-  font-weight: 800 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  text-transform: uppercase !important;
-  letter-spacing: 3px !important;
-  opacity: 0.7 !important;
-  transition: all 0.3s ease !important;
-}
-
-.ms-link:hover {
-  opacity: 1 !important;
-  padding-left: 10px !important;
-  color: var(--accent) !important;
-}
-
-/* OVERLAY */
-.ms-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(0,0,0,0.8) !important;
-  backdrop-filter: blur(5px) !important;
-  z-index: 10000 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: opacity 0.4s ease !important;
-}
-
-.ms-overlay.active {
-  opacity: 1 !important;
-  pointer-events: all !important;
-}
-
-/* Update hero padding for the fixed topbar */
+/* Update hero padding */
 #hero {
-  padding-top: 120px !important;
+  padding-top: 150px !important;
 }
 
-@media (max-width: 768px) {
-  .topbar-nav { display: none !important; }
-  .topbar-inner { padding: 0 20px !important; }
-  .topbar-logo { font-size: 1.1rem !important; }
+@media (max-width: 1024px) {
+  .nav-logo {
+    cursor: pointer;
+    z-index: 4000;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-primary) !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 3500;
+  }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-link {
+    color: var(--text-primary) !important;
+    font-size: 1.25rem !important; /* Scaled down for perfect fitting */
+    opacity: 0.7 !important;
+    text-transform: uppercase !important;
+    font-weight: 850 !important;
+    letter-spacing: 2px !important; /* Reduced to avoid overflow on long titles */
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    text-align: center !important; /* Force center for multi-line labels */
+    width: 90% !important;
+    max-width: 380px !important;
+    display: block !important;
+  }
+  
+  .nav-link:hover, .nav-link:active {
+    color: #e74c3c !important;
+    opacity: 1 !important;
+    transform: scale(1.05) !important; /* Smaller scale boost to prevent overlap */
+    letter-spacing: 3px !important;
+  }
+  .side-nav {
+    border-left: none !important;
+  }
 }
 
 /* ───────── CINEMATIC LIGHTBOX UI ───────── */
@@ -566,79 +423,39 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   justify-content: center !important;
 }
 
-.vl-container {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 1100px !important;
-  max-height: 98vh !important;
-  background-color: #0d0d0d !important;
+.vl-player {
+  width: 95% !important;
+  height: auto !important;
+  max-width: 1200px !important;
+  max-height: 90vh !important;
+  background-color: #000 !important;
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: row !important; /* SIDE BY SIDE */
   position: relative !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important; /* Default for mobile/tablet */
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(255,255,255,0.2) transparent !important;
-  border-radius: 24px !important;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.8) !important;
-  animation: vlPopIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  animation: vlPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* ───────── DESKTOP SPLIT LAYOUT (TEXT ONE SIDE, VIDEO ONE SIDE) ───────── */
-@media (min-width: 1024px) {
-  .vl-overlay:not(.portrait-mode) .vl-container {
-    display: grid !important;
-    grid-template-columns: 420px 1fr !important;
-    grid-template-rows: auto 1fr !important;
-    max-width: 1300px !important;
-    max-height: 85vh !important; /* Slightly more compact on desktop */
-    overflow: hidden !important; /* Lock overall scroll, use internal for panel */
-    height: auto !important;
-    min-height: 500px !important;
+@media (max-width: 1024px) {
+  .vl-player { 
+    flex-direction: column !important; 
+    max-height: 95vh !important;
   }
+  .vl-text-side {
+    padding: 3rem 1.5rem 2.5rem !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+  }
+}
 
-  .vl-overlay:not(.portrait-mode) .vl-header {
-    grid-column: 1 / -1 !important;
-    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    background: rgba(13,13,13,0.8) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-  }
-
-  .vl-overlay:not(.portrait-mode) .vl-content-details {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-    height: 100% !important;
-    border-right: 1px solid rgba(255,255,255,0.08) !important;
-    overflow-y: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    padding: 50px 40px !important;
-    background: #0d0d0d !important;
-    scrollbar-width: thin !important;
-  }
-
-  .vl-overlay:not(.portrait-mode) .vl-media-wrapper {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    height: 100% !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    background: #000 !important;
-    box-shadow: inset 20px 0 60px rgba(0,0,0,0.5) !important; /* Depth effect */
-  }
-
-  .vl-overlay:not(.portrait-mode) .vl-main-title {
-    font-size: 1.7rem !important;
-  }
-
-  .vl-overlay:not(.portrait-mode) .vl-description {
-    font-size: 0.85rem !important;
-    opacity: 0.7 !important;
-    line-height: 1.8 !important;
-  }
+/* PORTRAIT MODE REELS */
+.vl-overlay.portrait-mode .vl-player {
+  max-width: 1000px !important;
+}
+.vl-overlay.portrait-mode .vl-media-side {
+  aspect-ratio: 9/16 !important;
+  flex: 1.2 !important;
 }
 
 @keyframes vlPopIn {
@@ -646,18 +463,9 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.vl-header {
-  padding: 30px 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100 !important;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent) !important;
-}
+/* Header removed in new layout */
 
-.vl-back-btn {
+.vl-close {
   width: 50px !important;
   height: 50px !important;
   border-radius: 50% !important;
@@ -671,11 +479,15 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   cursor: pointer !important;
   transition: all 0.3s !important;
   font-size: 1.2rem !important;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
 }
 
-.vl-back-btn:hover {
-  background-color: rgba(255,255,255,0.2) !important;
-  transform: translateX(-5px) !important;
+.vl-close:hover {
+  background-color: #e74c3c !important;
+  transform: rotate(90deg) !important;
 }
 
 .vl-avatar-wrap {
@@ -699,36 +511,55 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   opacity: 1 !important;
 }
 
-.vl-media-wrapper {
-  flex: 0 0 auto !important;
-  width: 100% !important;
-  aspect-ratio: 16/9 !important; /* Default for cinematic videos */
+.vl-media-side {
+  flex: 1.5 !important;
+  aspect-ratio: 16/9 !important;
   background-color: #000 !important;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
   position: relative !important;
   z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
-/* Allow auto aspect ratio for images to prevent black bars */
-.vl-overlay.is-image .vl-media-wrapper { 
-  aspect-ratio: auto !important; 
-  min-height: 300px !important;
-  max-height: 80vh !important;
-}
-
-.vl-media-wrapper iframe, .vl-media-wrapper img, .vl-media-wrapper video {
+.vl-media-side iframe, .vl-media-side img, .vl-media-side video {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important; /* Use contain to ensure nothing is cut */
+  object-fit: contain !important;
   border: none !important;
+  display: block !important;
 }
 
-.vl-content-details {
+.vl-text-side {
   flex: 1 !important;
-  padding: 40px !important;
+  padding: 85px 35px 40px !important; /* Proper clearance for close button */
   color: #fff !important;
   text-align: left !important;
-  background: linear-gradient(to bottom, #111, #000) !important;
+  background: #0a0a0d !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  border-left: 1px solid rgba(255,255,255,0.1) !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.vl-text-side::-webkit-scrollbar {
+  display: none !important;
+}
+
+.vl-title {
+  color: #fff !important;
+  font-size: 1.85rem !important; /* Scaled down */
+  margin-bottom: 15px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  line-height: 1.2 !important;
+}
+
+.vl-description {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
 }
 
 
@@ -764,6 +595,8 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 
 .vl-pill:hover { background-color: rgba(255,255,255,0.2) !important; }
 
+
+
 .vl-description {
   font-size: 0.8rem !important; /* SMALLER, CLEANER TEXT */
   line-height: 1.7 !important;
@@ -779,15 +612,61 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 .vl-overlay.portrait-mode .vl-media-wrapper { aspect-ratio: 9/16 !important; }
 
 @media (max-width: 768px) {
-  .vl-container { max-height: 100vh !important; max-width: 100vw !important; border-radius: 0 !important; }
-  .vl-header { padding: 20px !important; }
-  .vl-main-title { font-size: 1.8rem !important; }
-  .vl-content-details { padding: 25px 20px !important; }
-  .vl-back-btn { width: 44px !important; height: 44px !important; }
-  .vl-avatar-wrap { 
-    width: 60px !important; /* Bigger mobile avatar */
-    height: 60px !important; 
-    padding: 3px !important; 
+  .vl-player { 
+    max-height: 98vh !important; 
+    max-width: 100vw !important; 
+    border-radius: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+  .vl-text-side {
+    padding: 2rem 1.25rem !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: auto !important;
+  }
+
+  .vl-title {
+    font-size: 1.5rem !important; /* Smaller text */
+    margin-bottom: 12px !important;
+  }
+
+  .vl-description {
+    font-size: 0.8rem !important; /* Smaller text */
+    line-height: 1.5 !important;
+    margin-bottom: 25px !important;
+    opacity: 0.7 !important;
+  }
+
+  .vl-pill-group {
+    justify-content: center !important;
+  }
+
+  .vl-media-side {
+    aspect-ratio: 16/9 !important;
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* Portrait mode on mobile (Reels) */
+  .vl-overlay.portrait-mode .vl-media-side {
+    aspect-ratio: 9/16 !important;
+    max-height: 60vh !important; /* Don't let it take all height */
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .vl-close { 
+    top: 15px !important; 
+    right: 15px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .db-hero-title {
+    font-size: 2.8rem !important; /* Slightly smaller for mobile */
   }
 }
 
@@ -797,17 +676,10 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 }
 
 /* ───────── HORIZONTAL DASHBOARD NAVIGATION ───────── */
-.dashboard {
-  flex-direction: column !important;
-  background-color: var(--bg-primary) !important;
-}
+
 
 /* ───────── PREMIUM FIXED TOPBAR (AGENCY STYLE) ───────── */
-.dashboard {
-  flex-direction: column !important;
-  position: relative !important;
-  padding-top: 0 !important; /* Reclaimed topbar space */
-}
+
 
 .db-sidebar {
   display: none !important; /* Removed topbar completely */
@@ -862,20 +734,21 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
 /* Close Button Top-Right Fixed Position */
 .db-top-close {
   position: absolute !important;
-  right: 25px !important;
-  top: 15px !important;
-  width: 36px !important;
-  height: 36px !important;
+  right: 20px !important;
+  top: 20px !important;
+  width: 44px !important;
+  height: 44px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #ffffff !important; /* High contrast white box */
-  border-radius: 10px !important; /* SQUARE BOX DESIGN */
-  border: none !important;
-  color: #000000 !important; /* Black icon on white circle */
-  z-index: 2000 !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  color: #000000 !important;
+  z-index: 9999 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: pointer !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
 }
 
 .db-top-close i {
@@ -1094,73 +967,20 @@ body, h1, h2, h3, h4, h5, h6, .hero-name, #hero-name, .hero-role, .wc-title, .se
   filter: grayscale(0%) !important;
 }
 
-/* ───────── REELS UI OVERHAUL (REFERENCE MATCH) ───────── */
-.db-card.reel-card {
-  flex: 0 0 180px !important; 
-  aspect-ratio: 9/16 !important;
-  position: relative !important;
-  overflow: hidden !important;
-  border-radius: 16px !important;
-  background: #000 !important;
-}
 
-.db-card.reel-card .db-card-thumb {
-  height: 100% !important;
-  width: 100% !important;
-  object-fit: cover !important;
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1) !important;
-}
-
-.db-card.reel-card:hover .db-card-thumb {
-  transform: scale(1.1) !important;
-}
-
-/* Full card overlay for text */
-.db-card.reel-card .db-card-info {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  padding: 40px 15px 15px !important; /* Extra top padding for gradient space */
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-end !important;
-  z-index: 5 !important;
-  text-align: left !important;
-}
-
-.db-card.reel-card .db-card-title {
-  color: #fff !important;
-  font-size: 1.1rem !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 4px !important;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
-}
-
-.db-card.reel-card .db-card-meta {
-  color: rgba(255,255,255,0.6) !important;
-  font-size: 0.65rem !important; /* MEGA SMALL */
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-}
-
-/* Global: Hide the type badge (VIDEO, REEL, IMAGE) for a cleaner UI */
-.db-card-type {
-  display: none !important;
-}
-
-/* Hide play btn and gradient for reels only to match social-style reference */
-.db-card.reel-card .db-play-btn, 
-.db-card.reel-card .db-thumb-gradient {
-  display: none !important;
-}
 
 /* Video Lightbox Portrait/Reel Mode */
 .vl-overlay.portrait-mode .vl-player {
-  max-width: 420px !important; /* Vertical focus */
+  max-width: 1100px !important; /* Widened to allow side-by-side video and text clearly */
+  width: 95% !important;
+}
+/* Ensure text side in portrait mode is non-scrolling and fully visible */
+.vl-overlay.portrait-mode .vl-text-side {
+  overflow-y: hidden !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 4rem 3.5rem !important;
 }
 .vl-overlay.portrait-mode .vl-frame-wrap {
   aspect-ratio: 9/16 !important;
@@ -1203,16 +1023,16 @@ html:not([data-theme="light"]) .img-light {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  padding: 20px 0 !important;
+  padding: 12px 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.1) !important;
-  margin-bottom: 20px !important;
+  margin-bottom: 15px !important;
 }
 
 .db-grid-content {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-  gap: 30px !important;
-  padding: 20px 0 !important;
+  gap: 20px !important;
+  padding: 10px 0 !important;
 }
 
 .db-grid-content .db-card {
@@ -1226,9 +1046,9 @@ html:not([data-theme="light"]) .img-light {
     flex-direction: column !important;
     text-align: center !important;
     justify-content: center !important;
-    min-height: 450px !important;
-    padding: 60px 40px !important;
-    gap: 30px !important;
+    min-height: 180px !important;
+    padding: 30px 20px !important;
+    gap: 15px !important;
   }
   
   .db-hero-content {
@@ -1239,18 +1059,12 @@ html:not([data-theme="light"]) .img-light {
   }
 
   .db-hero-visual-wrap {
-    width: 200px !important; /* MUCH BIGGER ON MOBILE */
-    height: 200px !important;
-    padding: 5px !important;
-    margin: 0 auto 25px !important;
-  }
-  .db-hero-visual-img {
-    width: 100% !important;
-    height: 100% !important;
+    display: none !important; /* Remove logo on mobile view as requested */
   }
 
+
   .db-hero-title {
-    font-size: 4rem !important; /* Larger on mobile too */
+    font-size: 2.5rem !important; /* Slightly smaller for mobile */
     line-height: 1.0 !important;
   }
 
@@ -1322,22 +1136,324 @@ html:not([data-theme="light"]) .img-light {
   }
 }
 
-/* ───────── DASHBOARD SCROLLBARS ───────── */
-.db-row-scroll::-webkit-scrollbar {
-  display: block !important;
-  height: 6px !important;
+/* ───────── RANKING LIST UI (REFERENCE MATCH) ───────── */
+/* ───────── PROFESSIONAL STUDIO GRID UI (ABOUT ME STYLE) ───────── */
+
+/* 1. PC: STUDIO GRID DESIGN (1024px+) */
+@media (min-width: 1024px) {
+  .db-grid-content, .db-row-scroll {
+    display: grid !important;
+    gap: 30px !important;
+    padding: 20px 0 !important;
+    overflow: visible !important;
+  }
+  
+  /* CATEGORY SPECIFIC PC GRID DENSITY */
+  .db-row-videos .db-row-scroll, 
+  .db-row-images .db-row-scroll,
+  .db-type-video.db-card,
+  .db-type-image.db-card,
+  .db-category-wrapper:has(.db-type-video) .db-grid-content,
+  .db-category-wrapper:has(.db-type-image) .db-grid-content {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .db-row-reels .db-row-scroll,
+  .db-type-reel.db-card,
+  .db-category-wrapper:has(.db-type-reel) .db-grid-content {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+
+  .ranking-card {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
 }
-.db-row-scroll::-webkit-scrollbar-thumb {
-  background: var(--text-primary) !important;
-  border-radius: 10px !important;
+
+/* 2. MOBILE: CLEAN PROFESSIONAL GRID (Up to 1023px) */
+@media (max-width: 1023px) {
+  .db-grid-content, .db-row-scroll {
+    display: grid !important;
+    gap: 20px !important;
+    padding: 15px 0 !important;
+    overflow-x: visible !important;
+  }
+
+  /* CATEGORY SPECIFIC MOBILE GRID DENSITY */
+  .db-row-videos .db-row-scroll, 
+  .db-row-images .db-row-scroll,
+  .db-category-wrapper:has(.db-type-video) .db-grid-content,
+  .db-category-wrapper:has(.db-type-image) .db-grid-content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .db-row-reels .db-row-scroll,
+  .db-category-wrapper:has(.db-type-reel) .db-grid-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .ranking-card {
+    flex: none !important;
+    width: 100% !important;
+    flex-direction: column !important; /* Vertical stack like About Me cards */
+    padding: 15px !important;
+    text-align: center !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px !important;
+  }
+  
+  .db-card-header-group {
+    flex-direction: column !important; /* Stack number and title on mobile */
+    align-items: center !important;
+    text-align: center !important;
+    order: 2 !important;
+    margin-top: 15px !important;
+    gap: 4px !important;
+  }
+
+  .db-card-media-wrap {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    order: 1 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+  }
+
+  .reel-card .db-card-media-wrap {
+    aspect-ratio: 9/16 !important;
+  }
+
+  .card-header {
+    margin-bottom: 5px !important;
+    align-items: center !important;
+  }
+
+  .card-rank {
+    font-size: 0.7rem !important;
+    opacity: 0.4 !important;
+    color: var(--accent) !important;
+    min-width: 0 !important; /* Reset for centered stack */
+    padding-top: 0 !important;
+  }
+
+  .db-card-title {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+  }
 }
-.db-row-scroll::-webkit-scrollbar-track {
+
+/* ───────── CLEAN CARD AESTHETICS (MATCHING ABOUT ME) ───────── */
+.ranking-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
+}
+
+.ranking-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+  border-color: var(--accent) !important;
+}
+
+.db-card-header-group {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important; /* Align to top for multi-line titles */
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+  padding: 0 5px !important;
+}
+
+.card-rank {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.75rem !important; /* Sophisticated smaller rank */
+  font-weight: 800 !important;
+  color: var(--accent) !important;
+  opacity: 0.5 !important;
+  min-width: 32px !important; /* Enough for "AA." */
+  letter-spacing: 0.5px !important;
+  padding-top: 1px !important; /* Slight vertical alignment nudge */
+}
+
+.db-card-title {
+  font-size: 0.8rem !important; 
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
+  flex: 1 !important;
+  text-transform: uppercase !important; /* Premium agency look */
+  letter-spacing: 0.6px !important;
+}
+
+/* ───────── IMMERSIVE REEL LIGHTBOX (MOBILE FULLSCREEN) ───────── */
+@media (max-width: 768px) {
+  .db-card-header-group {
+    gap: 8px !important;
+    margin-bottom: 3px !important;
+  }
+
+  /* ───────── IMMERSIVE REEL LIGHTBOX (MOBILE FULLSCREEN) ───────── */
+  .vl-overlay.portrait-mode .vl-player {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  .vl-overlay.portrait-mode .vl-split-layout {
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+
+  .vl-overlay.portrait-mode .vl-text-side {
+    display: none !important; /* Hide text on mobile for Reels */
+  }
+
+  .vl-overlay.portrait-mode .vl-media-side {
+    height: 100vh !important;
+    width: 100% !important;
+    background: #000 !important;
+  }
+
+  /* Make close button more visible on mobile Reels */
+  .vl-overlay.portrait-mode .vl-close {
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background: rgba(0,0,0,0.5) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.db-card-media-wrap {
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(128,128,128,0.1) !important;
+}
+
+/* ───────── INTERACTIVE COLOR CHANGE (CLICK & TOUCH) ───────── */
+.ranking-card {
+  user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.ranking-card:hover .db-card-title,
+.ranking-card:active .db-card-title {
+  color: var(--accent) !important;
+}
+
+.ranking-card:hover .card-rank,
+.ranking-card:active .card-rank {
+  color: var(--text-primary) !important;
+}
+
+/* Specific feedback for touch/click */
+.ranking-card:active {
+  transform: scale(0.98) !important;
+  border-color: var(--accent) !important;
+}
+
+.db-play-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  box-shadow: 0 5px 15px var(--accent-glow) !important;
+}
+
+/* ───────── DASHBOARD FOLDER NAVIGATION ───────── */
+.db-folder-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 2rem !important;
+  justify-content: center !important;
+}
+
+.db-folder-chip {
+  padding: 10px 22px !important;
   background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 50px !important;
+  color: #fff !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  backdrop-filter: blur(5px) !important;
 }
-.db-main::-webkit-scrollbar {
-  width: 6px !important;
+
+[data-theme="light"] .db-folder-chip {
+  background: rgba(0,0,0,0.03) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #111 !important;
 }
-.db-main::-webkit-scrollbar-thumb {
-  background: var(--text-primary) !important;
-  border-radius: 10px !important;
+
+.db-folder-chip i {
+  color: var(--accent) !important;
+  font-size: 0.85rem !important;
 }
+
+.db-folder-chip:hover,
+.db-folder-chip.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 10px 20px var(--accent-glow) !important;
+}
+
+.db-folder-chip:hover i,
+.db-folder-chip.active i {
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .db-folder-nav {
+    gap: 8px !important;
+    margin-top: 1.25rem !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding: 5px 15px !important;
+    width: calc(100% + 30px) !important;
+    margin-left: -15px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .db-folder-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+  .db-folder-chip {
+    padding: 8px 12px !important;
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    flex-shrink: 0 !important;
+  }
+  .db-folder-chip i {
+    font-size: 0.75rem !important;
+  }
+}
+
